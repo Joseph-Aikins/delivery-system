@@ -22,6 +22,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import io.codelabs.util.bindView
 import io.deliverysystem.R
 import io.deliverysystem.core.BaseActivity
+import io.deliverysystem.data.Item
 import io.deliverysystem.data.Order
 import io.deliverysystem.data.Rider
 import io.deliverysystem.util.Utils
@@ -119,7 +120,7 @@ class RiderHomeActivity : BaseActivity(), OnMapReadyCallback {
                     intent.putExtra(TrackingActivity.EXTRA_ORDER, item)
                     intent.putParcelableArrayListExtra(
                         TrackingActivity.EXTRA_CUSTOMER_ORDER,
-                        item.items as ArrayList<out Parcelable>
+                        item.items as? ArrayList<out Parcelable> ?: mutableListOf<Item>() as ArrayList<out Parcelable>
                     )
                     startActivity(intent)
                 } else {

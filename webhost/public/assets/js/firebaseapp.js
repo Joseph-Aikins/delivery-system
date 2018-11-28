@@ -1,13 +1,14 @@
   // Initialize Firebase
 var firebase = require("firebase/app");
 
+  // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyAPiO8jKPUCcv-5PjrBhHYGXyUxhtx0Fg4",
-    authDomain: "delivery-tracking-system-d346b.firebaseapp.com",
-    databaseURL: "https://delivery-tracking-system-d346b.firebaseio.com",
-    projectId: "delivery-tracking-system-d346b",
-    storageBucket: "delivery-tracking-system-d346b.appspot.com",
-    messagingSenderId: "2633226315"
+    apiKey: "AIzaSyDA2EGuvFzejL9SE0XqZ4SmW6rnQhu5ImM",
+    authDomain: "delivery-system-bab22.firebaseapp.com",
+    databaseURL: "https://delivery-system-bab22.firebaseio.com",
+    projectId: "delivery-system-bab22",
+    storageBucket: "delivery-system-bab22.appspot.com",
+    messagingSenderId: "1061864876503"
   };
 
   // Setup configuration

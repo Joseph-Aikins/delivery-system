@@ -101,6 +101,16 @@ class TrackingActivity : BaseActivity(), OnMapReadyCallback {
             bindOrder()
         }
         eSignBtn.setOnClickListener { doSigning() }
+
+        database.dao().getCustomer(auth.uid).observe(this, androidx.lifecycle.Observer {
+            if (it != null && it.isNotEmpty()) {
+                toolbar.title = "Track Rider"
+                return@Observer
+            }
+
+            //Request authorization from the customer
+            eSignBtn.text = "Request authorization"
+        })
     }
 
     private fun bindOrder() {
@@ -156,6 +166,7 @@ class TrackingActivity : BaseActivity(), OnMapReadyCallback {
                         )
                         val intent = Intent(applicationContext, UserPayment::class.java)
                         intent.putExtra(UserPayment.EXTRA_AUTH_MODEL, authentication)
+                        if (model is Order) intent.putExtra(UserPayment.EXTRA_ORDER_MODEL, model as Order)
                         startActivity(intent)
                         sendSms(shortCode)
                         finishAfterTransition()
@@ -246,6 +257,37 @@ class TrackingActivity : BaseActivity(), OnMapReadyCallback {
                     MarkerOptions().position(LatLng(tracker.latitude, tracker.longitude))
                         .title("My location")
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE))
+                )?.showInfoWindow()
+
+            }
+            path.execute()
+
+            //For debugging purposes only
+            val url = path.getUrl(LatLng(tracker.latitude, tracker.longitude), sydney)
+            Utils.logger("URL: $url")
+        } else if ((model is Order) && (model as? Order)?.address != null) {
+            val sydney = LatLng((model as? Order)?.address!!.lat, (model as? Order)?.address!!.lng)
+//			Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+            mMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 19.0f))
+
+            //Draw polygon here
+            val path = GetPathFromLocation(LatLng(tracker.latitude, tracker.longitude), sydney) { polyLine ->
+                Utils.logger("Polyline: $polyLine")
+
+                mMap?.addPolyline(polyLine)
+
+                //Customer's location
+                mMap?.addMarker(
+                    MarkerOptions().position(sydney)
+                        .title(model?.name)
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN))
+                )?.showInfoWindow()
+
+                //Rider's location
+                mMap?.addMarker(
+                    MarkerOptions().position(LatLng(tracker.latitude, tracker.longitude))
+                        .title("My location")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
                 )?.showInfoWindow()
 
             }
