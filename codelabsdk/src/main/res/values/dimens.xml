@@ -1,0 +1,73 @@
+<resources>
+	<!-- Default screen margins, per the Android Design guidelines. -->
+	<!-- standard metrics -->
+    <dimen name="spacing_normal">8dp</dimen>
+	<dimen name="spacing_micro">4dp</dimen>
+	<dimen name="spacing_large">32dp</dimen>
+    <dimen name="spacing_huge">64dp</dimen>
+    <dimen name="padding_normal">16dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="display_4_text_size">96sp</dimen>
+	<dimen name="divider_height">1px</dimen>
+	<dimen name="dialog_corners">2dp</dimen>
+    <!-- padding_normal + fab_size + padding_normal -->
+    <!-- fab_size + padding_normal -->
+    <!-- (fab_size / 2) + padding_normal -->
+	<dimen name="drag_dismiss_distance">112dp</dimen> <!-- 2 * ?android:actionBarSize -->
+	<!-- text input layout seems to add 4dp of extra padding. The following account for this -->
+
+
+    <!-- dialogs -->
+	<dimen name="padding_dialog">24dp</dimen>
+
+    <!-- drawer -->
+	<dimen name="drawer_width">300dp</dimen>
+	
+	<!-- grid -->
+    <dimen name="grid_icon_with_padding">40dp</dimen> <!-- 24dp icon + 2 * @dimen/spacing_normal -->
+	
+	<!-- designer news story -->
+
+    <!-- dribbble shot -->
+    <!-- 3 * ?android:actionBarSize -->
+	<!-- avatar should be a 40dp asset in a 48dp touch target & optically aligned with standard padding -->
+	<dimen name="avatar_size">40dp</dimen>
+	<dimen name="avatar_bounds">48dp</dimen>
+    <dimen name="avatar_padding">4dp</dimen> <!-- (avatar_bounds - avatar_size) / 2 -->
+	<dimen name="avatar_margin">12dp</dimen> <!-- padding_normal - avatar_padding -->
+	<dimen name="avatar_ripple_radius">20dp</dimen> <!-- avatar_size / 2 -->
+	<dimen name="comment_actions_height">40dp</dimen>
+	<dimen name="comment_like_margin_adjustment">-8dp</dimen>
+	
+	<!-- dribbble player -->
+	<dimen name="large_avatar_size">120dp</dimen> <!-- 2 * actionBarSize - 2 * avatar_padding -->
+	<dimen name="large_avatar_height">160dp
+	</dimen> <!-- large_avatar_margin + large_avatar_size + avatar_margin -->
+	
+	<!-- bottom sheet -->
+	<dimen name="bottom_sheet_width">@dimen/match_parent</dimen>
+	
+	<!-- about screen -->
+	<dimen name="about_header_height">254dp</dimen>
+	<dimen name="about_peek_height">350dp</dimen>
+
+    <!-- Z-axis elevations -->
+	<dimen name="z_app_bar">4dp</dimen>
+	<dimen name="z_card">2dp</dimen>
+	<dimen name="z_fab">6dp</dimen>
+	<dimen name="touch_raise">6dp</dimen>
+    <dimen name="z_fab_over_touchable_app_bar">9dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+	
+	<!-- per https://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html#MATCH_PARENT -->
+	<item name="match_parent" format="integer" type="dimen">-1</item>
+	
+	<!-- Per the design guidelines, navigation drawers should be between 240dp and 320dp:
+         https://developer.android.com/design/patterns/navigation-drawer.html -->
+    <dimen name="zero_spacing">0dp</dimen>
+	
+	<dimen name="shr_product_grid_reveal_height">200dp</dimen>
+	
+	<!-- Dimens for staggered asymmetric grid layout cards-->
+
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!--Base Colors-->
+    <!-- mono color -->
+	<!--<color name="primary_dark">#000000</color>-->
+	<!--<color name="accent">#A6C6C9</color>-->
+
+    <!--Auth & User colors-->
+
+    <!--Imported-->
+	<!-- common colours -->
+	<color name="text_primary_dark">#de000000</color> <!-- 87% -->
+	<color name="text_secondary_dark">#8a000000</color> <!-- 54% -->
+	<color name="text_tertiary_dark">#61000000</color> <!-- 38% -->
+	<color name="text_primary_light">#ffffffff</color>
+    <!-- 70% -->
+    <!-- 30% -->
+	<color name="ripple_light">#99ffffff</color>
+	<color name="ripple_dark">@color/mid_grey</color>
+	<color name="background_light">#fafafa</color> <!-- grey 50 -->
+    <!-- grey 300 -->
+    <color name="background_dark">#ff333333</color>
+    <!-- 70% grey 200 -->
+    <!-- overridden on v23+ -->
+    <!-- overridden on v26+ -->
+    <!-- this is blended with immersive_bars to produce the desired status bar color i.e. background_super_dark -->
+    <color name="scrim">#99323232</color>
+	<color name="app_scrim">#99cfcfcf</color>
+	<color name="mid_grey">#40808080</color>
+	<color name="light_grey">#fff5f5f5</color>
+    <color name="grey_300">#ffe0e0e0</color>
+	<color name="content_placeholder">#ffe0e0e0</color>
+	<color name="dark_icon">#99000000</color> <!-- 60% black-->
+    <!-- 30% black-->
+    <!-- 60% black on @color/primary -->
+    <!-- grey 600 -->
+	<color name="light_icon">#ffffffff</color>
+	<color name="divider">#1f000000</color> <!-- 12% black -->
+	<color name="page_indicator_dark">#80333333</color>
+	<color name="page_indicator_dark_selected">#ff333333</color>
+	<color name="selected_comment_background">#ffffffff</color>
+
+    <!-- text (most text uses material theme colours) -->
+	<color name="hint_disabled_dark">#43000000</color> <!-- 26% black -->
+
+    <!-- designer news -->
+    <!--light blue 500 --><![CDATA[-->
+	]]><!-- light blue 600 -->
+    <color name="designer_news_story_comment_background">@android:color/transparent</color>
+
+    <!-- dribbble -->
+	<color name="dribbble">#fff06292</color> <!-- pink 300 -->
+    <!-- pink 400 -->
+    <!-- 87% white-->
+    <color name="gif_badge_light_image">#40000000</color>
+	<color name="gif_badge_dark_image">#b3ffffff</color>
+
+
+    <!-- product hunt-->
+	<color name="product_hunt">#ffff9800</color>
+
+    <!-- search -->
+
+    <!--zeber x-->
+    <color name="black">#000000</color>
+	<color name="white">#fff</color>
+	<color name="transparent">#00ffffff</color>
+	
+	<color name="empty_placeholder">#F7F6FD</color>
+	<color name="note_placeholder">#F3F8FD</color>
+
+    <!--Shrine-->
+
+</resources>

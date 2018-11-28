@@ -1,0 +1,158 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+	
+	<!-- Base application theme. -->
+
+
+    <!--Imported-->
+	<style name="Widget.Plaid" parent="android:Widget" />
+	
+	<!--For IconView-->
+	<style name="Widget.Plaid.IconView">
+		<item name="constantShadowTranslationY">4dp</item>
+		<item name="variableShadowTranslationY">8dp</item>
+		<item name="scaleDown">0.85</item>
+		<item name="bigBlurRadius">25</item>
+		<item name="smallBlurRadius">8</item>
+	</style>
+	
+	<style name="Widget.Plaid.Toolbar">
+		<item name="android:titleTextAppearance">
+			@style/TextAppearance.AppCompat.Widget.ActionBar.Title
+		</item>
+		<item name="android:background">?android:colorPrimary</item>
+		<item name="android:elevation">@dimen/z_app_bar</item>
+		<item name="android:theme">@style/PlaidDarkOverlay</item>
+	</style>
+	
+	<style name="Widget.Plaid.Toolbar.SmallCapsTitle">
+		<item name="android:titleTextAppearance">@style/TextAppearance.ToolbarTitleSmallCaps</item>
+	</style>
+	
+	<style name="Widget.Plaid.HomeToolbar" parent="Widget.Plaid.Toolbar.SmallCapsTitle">
+		<item name="android:background">@color/white</item>
+		<item name="android:elevation">@dimen/z_app_bar</item>
+		<item name="android:theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+		<item name="android:textColor">?attr/colorAccent</item>
+		<item name="android:fontFamily">@font/merriweather</item>
+	</style>
+
+    <style name="TextAppearance.ToolbarTitle" parent="@android:style/TextAppearance.Material.Widget.ActionBar.Title">
+		<item name="android:textColor">@color/text_primary_light</item>
+		<item name="android:fontFamily">@font/nunito_semibold</item>
+	</style>
+	
+	<style name="TextAppearance.ToolbarTitleSmallCaps" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+		<item name="android:textColor">?attr/colorAccent</item>
+		<item name="android:fontFeatureSettings">smcp</item>
+		<item name="android:fontFamily">@font/merriweather</item>
+		<item name="android:textSize">20sp</item>
+		<!--<item name="android:letterSpacing">0.2</item>-->
+	</style>
+	
+	<style name="TextAppearance.DribbbleShotTitle" parent="@style/TextAppearance.AppCompat.Headline">
+		<!--<item name="android:fontFamily">@font/merriweather</item>-->
+		<item name="android:textColor">@color/text_primary_dark</item>
+		<item name="lineHeightHint">48sp</item>
+	</style>
+	
+	<style name="TextAppearance.CourseTitle" parent="TextAppearance.DribbbleShotTitle">
+		<item name="lineHeightHint">32sp</item>
+		<!--<item name="android:textSize">22sp</item>-->
+	</style>
+	
+	<style name="TextAppearance.TilePrimary" parent="@android:style/TextAppearance.Material.Subhead">
+		<item name="android:letterSpacing">0.01</item>
+		<item name="android:fontFamily">@font/roboto_mono_regular</item>
+		<item name="lineHeightHint">20sp</item>
+	</style>
+	
+	<style name="TextAppearance.TileSecondary" parent="@android:style/TextAppearance.Material.Body2">
+		<item name="android:letterSpacing">0.01</item>
+		<item name="android:textColor">?android:textColorSecondary</item>
+	</style>
+	
+	<style name="TextAppearance.DribbbleShotDescription" parent="@style/TextAppearance.AppCompat.Subhead">
+		<item name="android:textColor">@color/text_secondary_dark</item>
+		<item name="android:fontFamily">@font/noto_sans</item>
+		<item name="android:letterSpacing">0.01</item>
+		<item name="lineHeightHint">24sp</item>
+	</style>
+
+    <!-- todo revert to material styles? -->
+	<style name="TextAppearance.Comment" parent="@android:style/TextAppearance.Material.Body1">
+		<item name="android:textSize">15sp</item>
+		<item name="android:textColor">@color/text_secondary_dark</item>
+		<item name="lineHeightHint">24sp</item>
+		<!--<item name="android:letterSpacing">0.01</item>-->
+	</style>
+
+    <style name="TextAppearance.CommentAuthor" parent="@android:style/TextAppearance.Material.Caption">
+		<item name="android:fontFamily">sans-serif-medium</item>
+		<item name="android:textSize">14sp</item>
+		<item name="android:fontFeatureSettings">smcp, onum</item>
+		<item name="android:letterSpacing">0.02</item>
+	</style>
+	
+	<style name="TextAppearance.CommentTimestamp" parent="@style/TextAppearance.AppCompat.Caption">
+		<item name="android:textColor">@color/hint_disabled_dark</item>
+		<item name="android:textSize">14sp</item>
+		<item name="android:fontFeatureSettings">onum, smcp</item>
+		<item name="android:letterSpacing">0.02</item>
+	</style>
+
+    <style name="TextAppearance.DialogContent" parent="@android:style/TextAppearance.Material.Subhead">
+		<item name="android:textColor">@color/text_secondary_dark</item>
+		<item name="android:fontFamily">sans-serif-medium</item>
+		<item name="android:letterSpacing">0.01</item>
+		<item name="lineHeightHint">24sp</item>
+	</style>
+
+    <style name="TextAppearance.EmptyText" parent="@style/TextAppearance.DialogContent">
+		<item name="android:textColor">@color/text_primary_dark</item>
+		<item name="lineHeightHint">24sp</item>
+	</style>
+	
+	<!-- By default float labels (well, the design lib) rely on AppCompat which we're not using
+		 yet (minSdk=21). We use this style to work around this and to provide the accent color. -->
+
+    <style name="TextAppearance.Subhead" parent="@android:style/TextAppearance.Material.Subhead">
+		<item name="android:textColor">@color/text_secondary_dark</item>
+		<item name="android:letterSpacing">0.01</item>
+		<item name="lineHeightHint">24sp</item>
+	</style>
+
+    <style name="TextAppearance.Author.Title" parent="@style/TextAppearance.CommentAuthor">
+		<item name="android:textSize">20sp</item>
+		<item name="lineHeightHint">28sp</item>
+	</style>
+	
+	<style name="PlaidDarkOverlay" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+		<!-- Used to theme dark elements in light themed screens.
+			 Extend the material dark Action Bar overlay as this contains text styling. -->
+	</style>
+	
+	<style name="SearchViewTheme" parent="PlaidDarkOverlay">
+		<item name="colorControlActivated">?android:colorAccent</item>
+		<item name="android:searchViewStyle">@style/Widget.Plaid.SearchView</item>
+	</style>
+	
+	<style name="Widget.Plaid.SearchView" parent="android:style/Widget.Material.SearchView">
+		<item name="android:searchIcon">@android:color/transparent</item>
+		<item name="android:searchHintIcon" tools:targetApi="lollipop_mr1">
+			@android:color/transparent
+		</item>
+		<item name="android:textColor">@color/text_primary_light</item>
+		<item name="android:fontFamily">@font/merriweather</item>
+		<item name="android:queryBackground">@android:color/white</item>
+		<item name="android:submitBackground">@android:color/white</item>
+	</style>
+	
+	<style name="Widget.Plaid.InlineActionButton" parent="@android:style/Widget.Material.Button">
+		<item name="android:gravity">center_horizontal</item>
+		<item name="android:textAppearance">@style/TextAppearance.CommentAuthor</item>
+		<item name="android:drawablePadding">@dimen/spacing_micro</item>
+		<item name="android:background">?android:selectableItemBackgroundBorderless</item>
+	</style>
+
+
+</resources>

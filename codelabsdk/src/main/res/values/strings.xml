@@ -1,0 +1,13 @@
+<resources>
+	<string name="app_name">Codelab Utils</string>
+    <string name="search">Search</string>
+	<string name="search_hint">Search</string>
+	<string name="filter">Filter</string>
+	<string name="dummy_username">Derniz Quabynah Bilson</string>
+    <string name="empty"> </string>
+	<string name="invite">Invite friends</string>
+    <string name="username">Username</string>
+    <string name="dummy_address">160th St, Fresh Meadows, NY</string>
+    <string name="dummy_reg_date">July 3, 2018</string>
+    <string name="no_search_results">No results for\n“%1$s”</string>
+</resources>

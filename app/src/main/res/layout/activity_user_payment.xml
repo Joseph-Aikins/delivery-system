@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="@dimen/padding_dialog"
+              tools:context=".ui.UserPayment"
+              android:gravity="center">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:layout_gravity="center_horizontal"
+              android:text="Please enter your short code here to get started"
+              android:fontFamily="@font/noto_sans"
+              android:textSize="18sp"
+              android:gravity="center"
+              android:padding="@dimen/padding_normal"
+              android:layout_marginBottom="@dimen/padding_dialog"/>
+
+
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content">
+
+
+        <com.google.android.material.textfield.TextInputEditText android:layout_width="match_parent"
+                                                                 android:layout_height="wrap_content"
+                                                                 android:id="@+id/code_field"
+                                                                 android:hint="Short Code"
+                                                                 android:inputType="number"
+                                                                 android:maxLength="6"
+                                                                 android:fontFamily="@font/noto_sans"
+                                                                 android:textColor="@color/text_secondary_dark"
+                                                                 android:padding="@dimen/spacing_normal"/>
+
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:padding="@dimen/padding_normal"
+                android:text="Authenticate"
+                android:onClick="doAuthentication"
+                android:layout_gravity="center_horizontal"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_marginTop="@dimen/spacing_large"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

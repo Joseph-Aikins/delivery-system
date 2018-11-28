@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Item Delivery System</string>
+    <string name="default_notification_channel_id">Default Channel</string>
+    <string name="app_desc">Shopping &amp; product delivery just got easier</string>
+    <string name="title_activity_location">Location</string>
+    <string name="app_long_desc">Order your items and get them delivered to you at your doorsteps directly. \n<b>No hustle! No Wahala!</b></string>
+    <string name="app_welcome_text">Welcome to <b>Item Delivery System</b></string>
+    <string name="login_as_a_rider_instead">Login as a <u>rider instead</u></string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="rider_login_prompt">Welcome back!\nLogin to get started</string>
+</resources>

@@ -1,0 +1,169 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'io.fabric'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "io.deliverysystem"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode gitCommitCount
+        versionName gitSha
+        archivesBaseName = "delivery-system"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        resConfigs "en,fr"
+
+        def filesAuthorityValue = applicationId + ".provider"
+        buildConfigField "String", "FILES_AUTHORITY", "\"${filesAuthorityValue}\""
+        manifestPlaceholders = [filesAuthority: filesAuthorityValue]
+
+    }
+
+    buildTypes {
+        debug {
+            //Disable crashlytics
+            ext.enableCrashlytics = false
+            ext.alwaysUpdateBuildId = false
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
+    }
+
+    lintOptions {
+        // Turns off checks for the issue IDs you specify.
+        disable 'TypographyFractions', 'TypographyQuotes'
+        // Turns on checks for the issue IDs you specify. These checks are in
+        // addition to the default lint checks.
+        enable 'RtlHardcoded', 'RtlCompat', 'RtlEnabled'
+        // To enable checks for only a subset of issue IDs and ignore all others,
+        // list the issue IDs with the 'check' property instead. This property overrides
+        // any issue IDs you enable or disable using the properties above.
+        check 'NewApi', 'InlinedApi'
+        // If set to true, turns off analysis progress reporting by lint.
+        quiet true
+        // if set to true (default), stops the build if errors are found.
+        abortOnError false
+        // if true, only report errors.
+        ignoreWarnings true
+
+        baseline file("lint-baseline.xml")
+    }
+}
+
+dependencies {
+    def cropper_tool_version = '2.8.0'
+    def anko_version='0.10.8'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.core:core-ktx:$androidx_version"
+    implementation "org.jetbrains.anko:anko:$anko_version"
+
+    // androidx
+    implementation "androidx.appcompat:appcompat:$androidx_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
+    implementation "com.google.android.material:material:$androidx_version"
+    implementation "androidx.palette:palette:$androidx_version"
+    implementation "androidx.legacy:legacy-support-v4:$androidx_version"
+
+    //image cropper tool
+    implementation "com.theartofdev.edmodo:android-image-cropper:$cropper_tool_version"
+
+    // glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_compiler_version"
+
+    // dagger
+    implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //misc
+    implementation("com.squareup.okio:okio:1.14.0")
+    implementation("com.google.code.gson:gson:2.8.5")
+
+    //material dialogs
+    implementation "com.afollestad.material-dialogs:core:$material_dialog"
+
+    //firebase
+    implementation 'com.google.firebase:firebase-core:16.0.5'
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
+    implementation 'com.google.firebase:firebase-firestore:17.1.3'
+    implementation 'com.google.firebase:firebase-storage:16.0.5'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
+//    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.6'
+    // FirebaseUI for Cloud Firestore
+    implementation 'com.firebaseui:firebase-ui-firestore:4.2.1'
+
+    // FirebaseUI for Firebase Auth
+    implementation 'com.firebaseui:firebase-ui-auth:4.2.1'
+
+    //My personal library
+    implementation project(':codelabsdk')
+
+    //play services
+    implementation "com.google.android.gms:play-services-maps:$google"
+    implementation "com.google.android.gms:play-services-places:$google"
+    implementation "com.google.android.gms:play-services-location:$google"
+    implementation "com.google.android.gms:play-services-auth:16.0.1"
+
+    //retrofit & converters
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-jaxb:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    //okhttp
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
+    //lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    //room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+
+    //testing
+    androidTestImplementation("androidx.test.espresso:espresso-core:$espresso_version", {
+        exclude group: "com.android.support", module: "support-annotations"
+    })
+    androidTestImplementation "org.mockito:mockito-android:$mockito_version"
+    testImplementation "androidx.test:runner:$androidx_testrunner_version"
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            if (details.requested.group == 'com.google.firebase:firebase-iid') {
+                details.useVersion '17.0.4'
+                details.because 'API breakage in higher versions'
+            }
+        }
+    }
+
+}
+
+apply plugin: 'com.google.gms.google-services'
